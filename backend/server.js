@@ -18,7 +18,9 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.static(path.join(__dirname, "public"))); // Serve static files
+
+// Serve static files from the frontend folder
+app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 // Routes
 const authRoutes = require("./routes/auth");
@@ -35,7 +37,9 @@ app.use("/api/orders", orderRoutes);
 app.use("/api/reports", reportsRoutes);
 
 // Catch-all route for SPA (AFTER API routes)
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(__dirname, "..", "frontend", "index.html"))
+);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
