@@ -1,0 +1,76 @@
+/* Custom styles to override Bootstrap defaults and add pink colors */
+:root {
+  --pink-custom-200: #fde0e0; /* Light pink */
+  --pink-custom-300: #f8bdbd; /* Medium pink */
+  --pink-custom-100: #fde0e0; /* Dark pink */
+}
+
+
+
+.bg-pink-custom-100 { background-color: var(--pink-custom-100); }
+.bg-pink-custom-200 { background-color: var(--pink-custom-200); }
+.bg-pink-custom-300 { background-color: var(--pink-custom-300); }
+.text-pink-custom-300 { color: black; }
+.border-pink-custom-200 { border-color: var(--pink-custom-200); }
+
+.btn-pink { 
+  background-color: var(--pink-custom-300); 
+  color: white; 
+  border: none; 
+}
+.btn-pink:hover { 
+  background-color: var(--pink-custom-200); 
+  color: white; 
+}
+
+/* Responsive Design for Orders.js */
+@media (max-width: 1024px) { /* Tablet and below */
+  .card.p-3.shadow-sm {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%; /* Slightly wider than default */
+    padding: 1rem; /* Reduced padding for tighter fit on tablet */
+  }
+  .card .text-2xl, .card .text-xl, .card .text-lg {
+    font-size: 1rem !important; /* Smaller font size for better readability on tablet */
+  }
+  .card h3, .card h4, .card p, .card span {
+    font-size: 0.875rem !important; /* Smaller font size for all text within the card on tablet */
+  }
+  .card .btn, .card .form-control, .card .form-select {
+    font-size: 0.875rem; /* Smaller font size for buttons and inputs on tablet */
+    padding: 0.375rem 0.75rem; /* Adjust padding for smaller buttons/inputs on tablet */
+  }
+}
+
+@media (max-width: 576px) { /* Mobile and below */
+  .card.p-3.shadow-sm {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 95%; /* Even wider on mobile for full-width appearance */
+    padding: 0.75rem; /* Further reduce padding for tighter fit on mobile */
+  }
+  .card .text-2xl, .card .text-xl, .card .text-lg {
+    font-size: 0.875rem !important; /* Even smaller font size for mobile */
+  }
+  .card h3, .card h4, .card p, .card span {
+    font-size: 0.75rem !important; /* Smaller font size for all text within the card on mobile */
+  }
+  .card .btn, .card .form-control, .card .form-select {
+    font-size: 0.75rem; /* Smaller font size for buttons and inputs on mobile */
+    padding: 0.25rem 0.5rem; /* Adjust padding for smaller buttons/inputs on mobile */
+  }
+}
+
+/* Ensure desktop stays as is */
+@media (min-width: 1025px) {
+  .card.p-3.shadow-sm {
+    max-width: 100%; /* Default width on desktop */
+    padding: 1.5rem; /* Default padding on desktop */
+  }
+  .card .text-2xl { font-size: 1.5rem !important; }
+  .card .text-xl { font-size: 1.25rem !important; }
+  .card .text-lg { font-size: 1rem !important; }
+  .card h3, .card h4, .card p, .card span { font-size: 1rem !important; }
+  .card .btn, .card .form-control, .card .form-select { font-size: 1rem; padding: 0.5rem 1rem; }
+}
