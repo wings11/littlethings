@@ -18,7 +18,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.static(path.join(__dirname, "public"))); // Serve static files (if any)
+app.use(express.static(path.join(__dirname, "public"))); // Serve static files from the 'public' directory
 
 // Routes
 const authRoutes = require("./routes/auth");
@@ -27,14 +27,19 @@ const categoryRoutes = require("./routes/category");
 const orderRoutes = require("./routes/order");
 const reportsRoutes = require("./routes/reports");
 
-// Use routes correctly - this is where the error likely occurs
+// Use routes correctly
 app.use("/api/auth", authRoutes); // Use route files as middleware
 app.use("/api/items", itemRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/reports", reportsRoutes);
 
-// Error handling middleware (optional)
+// Serve frontend index.html for all unmatched routes (client-side routing)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res
